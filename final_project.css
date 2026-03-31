@@ -1,0 +1,225 @@
+body {
+    background-color: #011F3F; 
+    color: #FEF2BF;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    user-select: none;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Bahnschrift Condensed', Arial;
+    margin-bottom: 10px;
+    color: #FEF2BF;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Bahnschrift Condensed', Arial;
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    color: #85c1e9af;
+}
+
+/* --- SCREENS --- */
+.screen {
+    display: none; /* Hidden by default */
+    width: 100%;
+    max-width: 600px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen.active {
+    display: flex;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* --- MENUS & BUTTONS --- */
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+button {
+    padding: 15px 30px;
+    font-family: 'Bahnschrift Condensed', Arial;
+    font-size: 1.25rem;
+    background-color: #FEF2BF;
+    color: #011F3F;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+button.outline {
+    background: transparent;
+    border: 3px solid #FEF2BF;
+    color: #FEF2BF;
+}
+
+button.outline:hover {
+    background: #FEF2BF;
+    color: #011F3F;
+}
+
+/* --- COLOR GAME SPECIFIC --- */
+.color-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.btn-color {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    border: 5px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* Color Game buttons */
+.green { 
+    background-color: #2ECC71; 
+    box-shadow: 0 5px 0 #27AE60; 
+}
+.red { 
+    background-color: #E74C3C; 
+    box-shadow: 0 5px 0 #C0392B; 
+}
+.yellow { 
+    background-color: #F1C40F; 
+    box-shadow: 0 5px 0 #D4AC0D; 
+}
+.blue { 
+    background-color: #3498DB; 
+    box-shadow: 0 5px 0 #2980B9; 
+}
+
+.pressed {
+    box-shadow: 0 0 20px white;
+    opacity: 0.8;
+    transform: scale(0.95);
+}
+
+/* --- NUMBER & SYMBOL GAME SPECIFIC --- */
+.hud {
+    display: flex; 
+    justify-content: center; 
+    width: 100%; 
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+.sequence-box {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping if numbers get large */
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.item-card {
+    background-color: #85C1E9;
+    color: #011F3F;
+    padding: 15px 25px; /* Wider padding for fractions */
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    min-width: 60px; /* Slightly wider */
+    text-align: center;
+    box-shadow: 0 4px 0 #5DADE2;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Remove arrows/spinners from number input */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"] {
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-family: 'Bahnschrift Condensed', Arial;
+    background-color: #ecf0f1;
+    color: #011F3F;
+}
+
+.options-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.option-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 2rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- FEEDBACK & GAME OVER --- */
+.game-over-bg {
+    background-color: #E74C3C !important; /* Red Flash override */
+    transition: background-color 0.2s;
+}
+
+.feedback {
+    min-height: 30px; /* Changed to min-height to grow with hints */
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #ecf0f1;
+    transition: color 0.3s;
+}

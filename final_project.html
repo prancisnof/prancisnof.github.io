@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Master</title>
+    <link rel="stylesheet" href="final_project.css">
+</head>
+<body>
+
+    <div id="menu-screen" class="screen active">
+        <h1>Pattern Master</h1>
+        <p>Select Game Mode</p>
+        <div class="menu-grid">
+            <button onclick="initNumberGame()">🔢 Number Sequence</button>
+            <button onclick="initColorGame()">🎨 Color Memory</button>
+            <button onclick="initSymbolGame()">🧩 Symbol Puzzle</button>
+        </div>
+    </div>
+
+    <div id="color-screen" class="screen">
+        <h1 id="color-title">Level 0</h1>
+        
+        <div class="color-container">
+            <div id="green" class="btn-color green"></div>
+            <div id="red" class="btn-color red"></div>
+            <div id="yellow" class="btn-color yellow"></div>
+            <div id="blue" class="btn-color blue"></div>
+        </div>
+
+        <p class="feedback" style="height: 10px;"></p> 
+    </div>
+
+    <div id="logic-screen" class="screen">
+        <h1 id="logic-mode-title">Mode</h1>
+        
+        <div class="hud">
+            <p style="margin: 0;">Score: <span id="logic-score">0</span></p>
+        </div>
+
+        <div style="margin-top: 30px;"></div>
+
+        <div class="sequence-box" id="sequence-display">
+        </div>
+
+        <div id="number-input-area" class="input-area" style="display:none;">
+            <input type="number" id="num-guess" placeholder="?">
+            <button onclick="checkNumber()">Submit</button>
+        </div>
+
+        <div id="options-input-area" class="options-grid" style="display:none;">
+        </div>
+
+        <div id="logic-feedback" class="feedback"></div>
+    </div>
+
+    <div id="game-over-screen" class="screen">
+        <h1 style="color: #E74C3C; margin-bottom: 5px;">Game Over</h1>
+        <p>Final Score: <span id="final-score-display">0</span></p>
+        
+        <div class="menu-grid">
+            <button onclick="restartCurrentGame()">Try Again</button>
+            <button class="outline" onclick="showMenu()">Main Menu</button>
+        </div>
+    </div>
+
+<script src="final_project.js"></script>
+</body>
+</html>
